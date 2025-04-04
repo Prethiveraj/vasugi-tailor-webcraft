@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Scissors, Shirt, UserCheck } from "lucide-react";
+import { ChevronRight, Scissors, Shirt, UserCheck } from "lucide-react";
 
 const services = [
   {
@@ -27,10 +27,11 @@ const services = [
 
 const FeaturedServices = () => {
   return (
-    <section className="py-16 bg-tailor-light">
+    <section className="py-20 bg-gradient-to-b from-tailor-light to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold text-tailor-dark mb-4">Our Premium Services</h2>
+        <div className="text-center mb-16 animate-fade-in">
+          <span className="inline-block mb-3 text-tailor-maroon font-poppins font-medium uppercase tracking-wider text-sm">Our Expertise</span>
+          <h2 className="font-playfair text-3xl md:text-4xl font-bold text-tailor-dark mb-4 fancy-border pb-4">Premium Tailoring Services</h2>
           <p className="font-poppins text-gray-600 max-w-2xl mx-auto">
             At Vasugi Tailor, we offer a range of bespoke tailoring services to ensure your garments fit perfectly and reflect your style.
           </p>
@@ -40,31 +41,35 @@ const FeaturedServices = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              className="border border-gray-100 shadow-none hover:shadow-xl transition-all duration-500 elegant-shadow shine-effect"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <CardHeader className="text-center pb-2">
-                <div className="mx-auto mb-4">{service.icon}</div>
+              <CardHeader className="text-center pb-2 pt-8">
+                <div className="mx-auto mb-4 p-5 bg-tailor-light rounded-full">{service.icon}</div>
                 <CardTitle className="font-playfair text-2xl text-tailor-dark">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="font-poppins text-gray-600 text-center">
+                <CardDescription className="font-poppins text-gray-600 text-center text-base">
                   {service.description}
                 </CardDescription>
               </CardContent>
-              <CardFooter className="justify-center pt-2">
+              <CardFooter className="justify-center pt-2 pb-8">
                 <Link to={service.link}>
-                  <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white transition-colors duration-300">Learn More</Button>
+                  <Button className="bg-transparent text-tailor-maroon hover:bg-tailor-maroon/10 hover:text-tailor-maroon transition-colors duration-300 group">
+                    Learn More
+                    <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1" />
+                  </Button>
                 </Link>
               </CardFooter>
             </Card>
           ))}
         </div>
         
-        <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: "600ms" }}>
+        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: "600ms" }}>
           <Link to="/services">
-            <Button variant="outline" className="border-tailor-maroon text-tailor-maroon hover:bg-tailor-maroon hover:text-white transition-colors duration-300">
+            <Button variant="outline" className="border-tailor-maroon text-tailor-maroon hover:bg-tailor-maroon hover:text-white transition-colors duration-300 group">
               View All Services
+              <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
         </div>
