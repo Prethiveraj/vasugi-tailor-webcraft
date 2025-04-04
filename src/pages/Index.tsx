@@ -10,10 +10,18 @@ const Index = () => {
   return (
     <Layout>
       <Hero />
-      <FeaturedServices />
-      <AboutSection />
-      <Testimonials />
-      <ContactCTA />
+      <div className="reveal-on-scroll">
+        <FeaturedServices />
+      </div>
+      <div className="reveal-on-scroll">
+        <AboutSection />
+      </div>
+      <div className="reveal-on-scroll">
+        <Testimonials />
+      </div>
+      <div className="reveal-on-scroll">
+        <ContactCTA />
+      </div>
     </Layout>
   );
 };

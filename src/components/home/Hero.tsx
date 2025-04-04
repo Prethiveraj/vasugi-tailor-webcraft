@@ -12,7 +12,7 @@ const Hero = () => {
       ></div>
       
       <div className="relative container mx-auto px-4 py-20 md:py-32">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl animate-fade-in">
           <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
             Premium <span className="text-tailor-gold">Tailoring</span> Services
           </h1>
@@ -22,12 +22,12 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/services">
-              <Button className="bg-tailor-maroon hover:bg-tailor-gold text-white font-poppins px-8 py-6 rounded-md text-lg">
+              <Button className="bg-tailor-maroon hover:bg-tailor-gold text-white font-poppins px-8 py-6 rounded-md text-lg transition-colors duration-300">
                 Our Services
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white hover:text-tailor-dark text-white font-poppins px-8 py-6 rounded-md text-lg">
+              <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white hover:text-tailor-dark text-white font-poppins px-8 py-6 rounded-md text-lg transition-colors duration-300">
                 Book Appointment
               </Button>
             </Link>

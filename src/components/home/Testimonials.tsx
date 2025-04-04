@@ -58,7 +58,7 @@ const Testimonials = () => {
   return (
     <section className="py-16 bg-tailor-cream">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="font-playfair text-3xl md:text-4xl font-bold text-tailor-dark mb-4">
             What Our Customers Say
           </h2>
@@ -73,7 +73,7 @@ const Testimonials = () => {
             <Button 
               variant="outline" 
               size="icon" 
-              className="rounded-full bg-white border border-gray-200 shadow-md hover:bg-tailor-maroon hover:text-white"
+              className="rounded-full bg-white border border-gray-200 shadow-md hover:bg-tailor-maroon hover:text-white transition-colors duration-300"
               onClick={prevSlide}
               aria-label="Previous testimonial"
             >
@@ -85,7 +85,7 @@ const Testimonials = () => {
             <Button 
               variant="outline" 
               size="icon" 
-              className="rounded-full bg-white border border-gray-200 shadow-md hover:bg-tailor-maroon hover:text-white"
+              className="rounded-full bg-white border border-gray-200 shadow-md hover:bg-tailor-maroon hover:text-white transition-colors duration-300"
               onClick={nextSlide}
               aria-label="Next testimonial"
             >
@@ -95,12 +95,12 @@ const Testimonials = () => {
           
           {/* Testimonials */}
           <div className="overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-in-out">
-              {currentTestimonials.map((testimonial, idx) => (
-                <Card key={idx} className="w-full flex-none border-none shadow-lg bg-white rounded-xl overflow-hidden">
+            <div className="flex transition-all duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {testimonials.map((testimonial, idx) => (
+                <Card key={idx} className="w-full flex-none border-none shadow-lg bg-white rounded-xl overflow-hidden animate-fade-in" style={{ animationDelay: "300ms" }}>
                   <CardContent className="p-0">
                     <div className="p-8 md:p-12 text-center">
-                      <div className="w-20 h-20 mx-auto mb-6 overflow-hidden rounded-full border-4 border-tailor-cream">
+                      <div className="w-20 h-20 mx-auto mb-6 overflow-hidden rounded-full border-4 border-tailor-cream transform transition-transform duration-300 hover:scale-110">
                         <img 
                           src={testimonial.image} 
                           alt={testimonial.name} 
@@ -140,9 +140,9 @@ const Testimonials = () => {
             {[...Array(totalPages)].map((_, idx) => (
               <button
                 key={idx}
-                className={`w-3 h-3 rounded-full transition-colors ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   Math.floor(currentIndex / itemsPerPage) === idx
-                    ? "bg-tailor-maroon"
+                    ? "bg-tailor-maroon w-6"
                     : "bg-gray-300"
                 }`}
                 onClick={() => setCurrentIndex(idx * itemsPerPage)}
