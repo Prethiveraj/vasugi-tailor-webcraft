@@ -10,16 +10,16 @@ const Index = () => {
   return (
     <Layout>
       <Hero />
-      <div className="reveal-on-scroll" data-delay="200">
+      <div className="reveal-on-scroll">
         <FeaturedServices />
       </div>
-      <div className="reveal-on-scroll" data-delay="400">
+      <div className="reveal-on-scroll">
         <AboutSection />
       </div>
-      <div className="reveal-on-scroll" data-delay="600">
+      <div className="reveal-on-scroll">
         <Testimonials />
       </div>
-      <div className="reveal-on-scroll" data-delay="800">
+      <div className="reveal-on-scroll">
         <ContactCTA />
       </div>
     </Layout>
