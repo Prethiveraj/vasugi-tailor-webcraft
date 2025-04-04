@@ -1,50 +1,81 @@
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Scissors } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-2">
-        <div className="flex items-center justify-between h-16">
+    <header 
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white shadow-md py-2' 
+          : 'bg-transparent backdrop-blur-sm bg-white/70 py-4'
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className="font-playfair text-2xl md:text-3xl font-bold text-tailor-maroon">Vasugi Tailor</span>
+          <Link to="/" className="flex items-center group">
+            <Scissors size={24} className="text-tailor-maroon mr-2 transition-transform group-hover:rotate-45" />
+            <span className="font-playfair text-2xl md:text-3xl font-bold text-tailor-maroon">
+              Vasugi <span className="text-tailor-dark">Tailor</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
-              Home
-            </Link>
-            <Link to="/services" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
-              Services
-            </Link>
-            <Link to="/about" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
-              About
-            </Link>
-            <Link to="/gallery" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
-              Gallery
-            </Link>
-            <Link to="/contact" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
-              Contact
-            </Link>
+            {["Home", "Services", "About", "Gallery", "Contact"].map((item) => {
+              const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+              const isActive = location.pathname === path;
+              
+              return (
+                <Link 
+                  key={item}
+                  to={path} 
+                  className={`font-poppins font-medium relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-tailor-maroon after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left ${
+                    isActive 
+                      ? 'text-tailor-maroon after:scale-x-100' 
+                      : 'text-tailor-dark hover:text-tailor-maroon transition-colors'
+                  }`}
+                >
+                  {item}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Contact Button */}
           <div className="hidden md:flex">
-            <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white">
-              <Phone size={18} className="mr-2" />
-              Book Appointment
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white shadow-md transition-all duration-300 hover:translate-y-[-2px]">
+                <Phone size={18} className="mr-2" />
+                Book Appointment
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -62,48 +93,34 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 py-4 animate-fade-in">
+        <div className="md:hidden bg-white border-t border-gray-100 py-4 animate-fade-in shadow-md">
           <div className="container mx-auto px-4">
             <div className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
+              {["Home", "Services", "About", "Gallery", "Contact"].map((item) => {
+                const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+                const isActive = location.pathname === path;
+                
+                return (
+                  <Link 
+                    key={item}
+                    to={path} 
+                    className={`font-poppins font-medium py-2 ${
+                      isActive 
+                        ? 'text-tailor-maroon' 
+                        : 'text-tailor-dark hover:text-tailor-maroon transition-colors'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                );
+              })}
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white w-full shadow-md">
+                  <Phone size={18} className="mr-2" />
+                  Book Appointment
+                </Button>
               </Link>
-              <Link 
-                to="/services" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link 
-                to="/about" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link 
-                to="/gallery" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Gallery
-              </Link>
-              <Link 
-                to="/contact" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white w-full">
-                <Phone size={18} className="mr-2" />
-                Book Appointment
-              </Button>
             </div>
           </div>
         </div>
