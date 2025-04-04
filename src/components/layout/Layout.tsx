@@ -18,7 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
         const elementVisible = 150;
         
         if (elementTop < window.innerHeight - elementVisible) {
-          element.classList.add('active');
+          element.classList.add('animate-fade-in');
         }
       });
     };
@@ -35,7 +35,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow w-full pt-[76px] md:pt-[84px]">{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   );
