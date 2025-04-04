@@ -18,20 +18,20 @@ const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image Column - Replace this URL with your image */}
-          <div className="relative animate-fade-in" style={{ animationDelay: "200ms" }}>
+          <div className="relative">
             <div 
-              className="rounded-lg shadow-xl h-[500px] bg-center bg-cover transform transition-transform duration-700 hover:scale-[1.02]"
+              className="rounded-lg shadow-xl h-[500px] bg-center bg-cover"
               style={{ backgroundImage: "url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80')" }}
             ></div>
             {/* Duplicate image that can be replaced later */}
             <div 
-              className="absolute -bottom-6 -right-6 rounded-lg shadow-xl h-[200px] w-[200px] bg-center bg-cover border-4 border-white transform transition-transform duration-700 hover:scale-110"
+              className="absolute -bottom-6 -right-6 rounded-lg shadow-xl h-[200px] w-[200px] bg-center bg-cover border-4 border-white"
               style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80')" }}
             ></div>
           </div>
           
           {/* Content Column */}
-          <div className="animate-fade-in" style={{ animationDelay: "400ms" }}>
+          <div>
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-tailor-dark mb-4">
               About Vasugi Tailor
             </h2>
@@ -45,7 +45,7 @@ const AboutSection = () => {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-center transform transition hover:translate-x-1 duration-300" style={{ animationDelay: `${index * 100 + 500}ms` }}>
+                <div key={index} className="flex items-center">
                   <Check size={18} className="text-tailor-maroon mr-2" />
                   <span className="font-poppins text-gray-700">{feature}</span>
                 </div>
@@ -53,7 +53,7 @@ const AboutSection = () => {
             </div>
             
             <Link to="/about">
-              <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white transition-colors duration-300">
+              <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white">
                 Learn More About Us
               </Button>
             </Link>
