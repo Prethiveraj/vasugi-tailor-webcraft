@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="relative bg-tailor-blue text-white">
+    <div className="relative bg-[#EC7FA9] text-white">
       {/* Hero Background */}
       <div 
         className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-70"
@@ -13,7 +13,7 @@ const Hero = () => {
       
       <div className="relative container mx-auto px-4 py-20 md:py-32">
         <div className="max-w-3xl animate-fade-in text-center md:text-left">
-          <h1 className="font-exo text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-tailor-pink italic">
+          <h1 className="font-exo text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-[#FFEDFA] italic">
             Lovely<br />Women Style
           </h1>
           <p className="font-exo text-lg md:text-xl text-white mb-8">
@@ -22,12 +22,12 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Link to="/services">
-              <Button className="bg-tailor-pink hover:bg-pink-600 text-white font-exo px-8 py-6 rounded-md text-lg transition-colors duration-300">
+              <Button className="bg-[#BE5985] hover:bg-[#FFEDFA] hover:text-[#BE5985] text-white font-exo px-8 py-6 rounded-md text-lg transition-colors duration-300">
                 Our Services
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white hover:text-tailor-pink text-white font-exo px-8 py-6 rounded-md text-lg transition-colors duration-300">
+              <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white hover:text-[#BE5985] text-white font-exo px-8 py-6 rounded-md text-lg transition-colors duration-300">
                 Book Appointment
               </Button>
             </Link>

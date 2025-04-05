@@ -64,12 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				tailor: {
-					"maroon": "#8B0000",
-					"gold": "#DAA520",
-					"cream": "#FFFDD0",
+					"maroon": "#BE5985",
+					"gold": "#FFB8E0",
+					"cream": "#FFEDFA",
 					"dark": "#2A2A2A",
 					"light": "#F8F9FA",
-					"pink": "#FF1493",
+					"pink": "#EC7FA9",
 					"blue": "#87CEEB",
 				}
 			},
@@ -79,8 +79,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				'playfair': ['Playfair Display', 'serif'],
-				'poppins': ['Poppins', 'sans-serif'],
+				'playfair': ['Exo 2', 'sans-serif'],
+				'poppins': ['Exo 2', 'sans-serif'],
 				'exo': ['Exo 2', 'sans-serif'],
 			},
 			keyframes: {
