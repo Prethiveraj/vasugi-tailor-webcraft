@@ -8,7 +8,7 @@ const Hero = () => {
       {/* Hero Background */}
       <div 
         className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-70"
-        style={{ backgroundImage: "url('/lovable-uploads/d7718749-90be-4a4a-8cab-d62699b795ed.png')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562137579-f8666276649e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')" }}
       ></div>
       
       <div className="relative container mx-auto px-4 py-20 md:py-32">
