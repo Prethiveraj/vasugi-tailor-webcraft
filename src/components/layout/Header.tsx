@@ -21,26 +21,26 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
+            <Link to="/" className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors">
               Home
             </Link>
-            <Link to="/services" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
+            <Link to="/services" className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors">
               Services
             </Link>
-            <Link to="/about" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
+            <Link to="/about" className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors">
               About
             </Link>
-            <Link to="/gallery" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
+            <Link to="/gallery" className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors">
               Gallery
             </Link>
-            <Link to="/contact" className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors">
+            <Link to="/contact" className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors">
               Contact
             </Link>
           </nav>
 
           {/* Contact Button */}
           <div className="hidden md:flex">
-            <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white">
+            <Button className="bg-tailor-pink hover:bg-pink-600 text-white font-exo">
               <Phone size={18} className="mr-2" />
               Book Appointment
             </Button>
@@ -66,40 +66,40 @@ const Header = () => {
             <div className="flex flex-col space-y-4">
               <Link 
                 to="/" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
+                className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
                 to="/services" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
+                className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
               <Link 
                 to="/about" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
+                className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link 
                 to="/gallery" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
+                className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
               </Link>
               <Link 
                 to="/contact" 
-                className="font-poppins font-medium text-tailor-dark hover:text-tailor-maroon transition-colors py-2"
+                className="font-exo font-medium text-tailor-dark hover:text-tailor-pink transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
-              <Button className="bg-tailor-maroon hover:bg-tailor-dark text-white w-full">
+              <Button className="bg-tailor-pink hover:bg-pink-600 text-white font-exo w-full">
                 <Phone size={18} className="mr-2" />
                 Book Appointment
               </Button>

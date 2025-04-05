@@ -69,6 +69,8 @@ export default {
 					"cream": "#FFFDD0",
 					"dark": "#2A2A2A",
 					"light": "#F8F9FA",
+					"pink": "#FF1493",
+					"blue": "#87CEEB",
 				}
 			},
 			borderRadius: {
@@ -79,6 +81,7 @@ export default {
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
 				'poppins': ['Poppins', 'sans-serif'],
+				'exo': ['Exo 2', 'sans-serif'],
 			},
 			keyframes: {
 				'accordion-down': {
